@@ -1,5 +1,8 @@
 require('../css/login.less')
 let axios=require('axios')
+function getValue(name){
+    return document.querySelector(name).value;
+}
 let phone = getValue('#phone');
 let password = getValue('#password');
 let warns = document.querySelector('.warns');
