@@ -8,7 +8,7 @@ btn.onclick = function(){
 axios.post('http://139.9.177.51:8099/users/login', {
     account: phone,
     password: password
-}).then(res=>{ {
+}).then(res=>{
 // 登录成功
     if(res.data.msg === 'OK') {
         const userData = res.data.user
@@ -30,7 +30,6 @@ axios.post('http://139.9.177.51:8099/users/login', {
 // 登录失败
         warns.textContent = res.msg;
     }
-}
 })
 }
 
