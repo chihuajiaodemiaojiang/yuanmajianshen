@@ -27,5 +27,10 @@
   "scripts": {
     "serve": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "captcha-mini": "^1.1.0",
+    "qs": "^6.10.3"
   }
 }

@@ -1,3 +1,82 @@
-h3 {
-    color: peachpuff;
+body{
+    background-image: url(../img/sign-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    p:first-child {
+        width: 80px;
+        height: 28px;
+        color: rgba(255, 255, 255, 100);
+        font-size: 20px;
+        text-align: center;
+        font-family: PingFangSC-regular;
+        align-self: flex-end;
+        margin-bottom: 23px;
+    }
+
+    p:nth-child(2) {
+        width: 210px;
+        height: 40px;
+        color: rgba(255, 255, 255, 100);
+        font-size: 28px;
+        text-align: left;
+        font-family: PingFangSC-bold;
+
+    }
+    p:nth-child(3) {
+        width: 250px;
+        height: 22px;
+        opacity: 0.6;
+        color: rgba(255, 255, 255, 100);
+        font-size: 16px;
+        text-align: left;
+        font-family: PingFangSC-regular;
+
+    }
+}
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    padding: 11px 29px 0 29px;
+    flex: 1;
+    #phone{
+        border-radius: 0 25px 25px 0;
+        flex: 1;
+    }
+    .links{
+        width: 100%;
+        margin-top: 27px;
+        .warn{
+            font-size: 14px;
+            color: red;
+        }
+        .iconfont{
+            font-size: 16px;
+            color: rgba(255, 255, 255, 100);
+            float: right;
+        }
+    }
+}
+footer{
+    height:82px;
+    display: flex;
+    justify-content: center;
+    p{
+        width: 104px;
+        height: 22px;
+        color: rgba(255, 255, 255, 100);
+        font-size: 16px;
+        text-align: left;
+        font-family: PingFangSC-regular;
+    }
+
 }

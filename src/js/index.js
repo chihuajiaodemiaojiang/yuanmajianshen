@@ -10,3 +10,6 @@ let timer = setInterval(() => {
         window.location.href = './login.html';
     }
 }, 1000);
+document.querySelector('.jump').onclick = function() {
+    window.location.href = './login.html';
+}
