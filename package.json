@@ -18,6 +18,7 @@
     "mini-css-extract-plugin": "^2.6.0",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "path": "^0.12.7",
+    "prettier": "^2.6.2",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "5.12.0",

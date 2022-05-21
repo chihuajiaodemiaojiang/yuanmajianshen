@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../teacherhandout/.idea/teacherhandout.iml" filepath="$PROJECT_DIR$/../teacherhandout/.idea/teacherhandout.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/yuanmajianshen.iml" filepath="$PROJECT_DIR$/.idea/yuanmajianshen.iml" />
     </modules>
   </component>

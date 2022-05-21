@@ -1,16 +1,16 @@
-require('../css/reg.less')
-let CaptchaMini=require('captcha-mini')
+require("../css/reg.less");
+let CaptchaMini = require("captcha-mini");
 let captchaDrawer = new CaptchaMini();
-let captchaCode = ''
-let axios=require('axios')
-captchaDrawer.draw(document.querySelector('#captcha'), function(code) {
-    captchaCode = code;
+let captchaCode = "";
+let axios = require("axios");
+captchaDrawer.draw(document.querySelector("#captcha"), function (code) {
+  captchaCode = code;
 });
 //跳转到登录页
-let passwordToLogin = document.querySelector('.passwordToLogin');
-passwordToLogin.onclick = function(){
-    location.href = './login.html';
-}
+let passwordToLogin = document.querySelector(".passwordToLogin");
+passwordToLogin.onclick = function () {
+  location.href = "./login.html";
+};
 // let captcha2 = new CaptchaMini({
 //     lineWidth: 1,   //线条宽度
 //     lineNum: 6,       //线条数量
@@ -28,63 +28,62 @@ passwordToLogin.onclick = function(){
 //     console.log(r, '验证码2');
 // });
 // 注册表单验证
-let btn = document.querySelector('.btn');
-let warn = document.querySelector('.warn');
-function getValue(name){
-    return document.querySelector(name).value.trim();
+let btn = document.querySelector(".btn");
+let warn = document.querySelector(".warn");
+function getValue(name) {
+  return document.querySelector(name).value.trim();
 }
 // 点击注册按钮后，要进行以下流程处理：
 // 1.表单验证：判空、手机号格式、验证码、密码一致性
 // 2.请求注册接口
 // 3.注册成功后自动登录，跳转到首页
-btn.onclick = function(){
-    let phone = getValue('#phone');
-    console.log(phone);
-    let code = getValue('#code');
-    let password = getValue('#password');
-    let repassword = getValue('#repassword');
-    if(!phone){
-        warn.innerHTML = '手机号不能为空';
-        return;
-    }
-    if(!/^1[3-9]\d{9}$/.test(phone)){
-        warn.innerHTML = '手机号格式不正确';
-        return;
-    }
-    if(!code){
-        warn.innerHTML = '验证码不能为空';
-        return;
-    }
-    if(code !== captchaCode){
-        warn.innerHTML = '验证码错误';
-        return;
-    }
-    // 密码格式
-    if (!/^\w{6,16}$/.test(password)) {
-        warn.innerHTML = '密码格式不正确';
-        return;
-    }
-    if(!password){
-        warn.innerHTML = '密码不能为空';
-        return;
-    }
-    if(password !== repassword){
-        warn.innerHTML = '两次密码不一致';
-    }
-    axios.post('http://139.9.177.51:3701/api/user/register',{
-        account:phone,
-        password:password
-    }).then(res=>{
-        console.log(res.data.msg);
-        if(res.data.msg === 'OK'){
-            // 注册成功，自动登录
-            // 跳转到首页
-            location.href = './login.html';
-        }else {
-            warn.innerHTML = res.data.msg;
-        }
+btn.onclick = function () {
+  let phone = getValue("#phone");
+  console.log(phone);
+  let code = getValue("#code");
+  let password = getValue("#password");
+  let repassword = getValue("#repassword");
+  if (!phone) {
+    warn.innerHTML = "手机号不能为空";
+    return;
+  }
+  if (!/^1[3-9]\d{9}$/.test(phone)) {
+    warn.innerHTML = "手机号格式不正确";
+    return;
+  }
+  if (!code) {
+    warn.innerHTML = "验证码不能为空";
+    return;
+  }
+  if (code !== captchaCode) {
+    warn.innerHTML = "验证码错误";
+    return;
+  }
+  // 密码格式
+  if (!/^\w{6,16}$/.test(password)) {
+    warn.innerHTML = "密码格式不正确";
+    return;
+  }
+  if (!password) {
+    warn.innerHTML = "密码不能为空";
+    return;
+  }
+  if (password !== repassword) {
+    warn.innerHTML = "两次密码不一致";
+  }
+  axios
+    .post("http://139.9.177.51:3701/api/user/register", {
+      account: phone,
+      password: password,
     })
-}
-
-
-
+    .then((res) => {
+      console.log(res.data.msg);
+      if (res.data.msg === "OK") {
+        // 注册成功，自动登录
+        // 跳转到首页
+        location.href = "./login.html";
+      } else {
+        warn.innerHTML = res.data.msg;
+      }
+    });
+};
