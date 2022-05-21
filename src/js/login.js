@@ -35,5 +35,8 @@ axios.post('http://139.9.177.51:8099/users/login', {
     }
 })
 }
-// 20
+let registerAnAccount = document.querySelector('.registerAnAccount');
+registerAnAccount.onclick = function(){
+    window.location.href = './reg.html';
+}
 
