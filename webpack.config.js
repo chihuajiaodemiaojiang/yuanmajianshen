@@ -12,9 +12,10 @@ module.exports = {
     // 1. 入口
     entry: {
         commoncss: './src/js/commoncss.js', // 公共样式入口
-        index: './src/js/index.js', // 广告页
+        adverti: './src/js/adverti.js', // 广告页
         reg: './src/js/reg.js', // 注册页
-        login: './src/js/login.js' // 登录页
+        login: './src/js/login.js', // 登录页
+        index: './src/js/index.js' // 首页
     },
     // 2. 出口
     output: {
@@ -78,9 +79,9 @@ module.exports = {
     plugins: [
         // 打包广告页
         new HtmlWebpackPlugin({
-            template: './src/index.html', // 需要打包的html文件
-            filename: 'index.html', // 打包后生成的文件名
-            chunks: ['index', 'commoncss'] // 需要使用的入口文件
+            template: './src/adverti.html', // 需要打包的html文件
+            filename: 'adverti.html', // 打包后生成的文件名
+            chunks: ['adverti', 'commoncss'] // 需要使用的入口文件
         }),
         // 打包注册页
         new HtmlWebpackPlugin({
@@ -93,6 +94,11 @@ module.exports = {
             template: './src/login.html',
             filename: 'login.html',
             chunks: ['login', 'commoncss']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html',
+            chunks: ['index', 'commoncss']
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css' // 输出到css文件夹里
@@ -111,6 +117,6 @@ module.exports = {
         port: 666,  // 端口
         open: true, // 自动打开服务
         publicPath: '/', // 静态资源查找路径
-        openPage: 'index.html', // 打开的页面
+        openPage: 'adverti.html', // 打开的页面
     },
 }

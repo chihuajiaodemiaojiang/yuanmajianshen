@@ -1,15 +1,16 @@
-// 导入样式
 require('../css/index.less');
-let jumpTime = document.querySelector('.jumpTime')
-// 设置五秒倒计时,倒计时结束后跳转login页面
-let time = 5;
-let timer = setInterval(() => {
-    jumpTime.innerHTML = time-- + 's';
-    if (time < 0) {
-        clearInterval(timer);
-        window.location.href = './login.html';
+require('../../node_modules/swiper/swiper-bundle.js');
+require('../../node_modules/swiper/swiper-bundle.css');
+var mySwiper = new Swiper ('.swiper', {
+    direction: 'horizontal', // 垂直切换选项
+    loop: true, // 循环模式选项
+    // 如果需要分页器
+    pagination: {
+        el: '.swiper-pagination',
+    },
+    autoplay: {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
     }
-}, 1000);
-document.querySelector('.jump').onclick = function() {
-    window.location.href = './login.html';
-}
+})

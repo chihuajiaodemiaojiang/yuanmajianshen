@@ -69,6 +69,28 @@
 .verificationCode{
 	display: flex;
 }
+.tab{
+	width: 100%;
+	height: 77px;
+}
+.tab ul{
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+	align-items: center;
+}
+.tab li{
+	width: 30%;
+	text-align: center;
+}
+.tab li p{
+	font-size: 40px ;
+}
+.tab li span{
+	font-size: 14px ;
+}
+
+
 
 
 

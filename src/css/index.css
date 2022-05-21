@@ -1,66 +1,136 @@
-html {
-  width: 100%;
-}
-html body {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-html body header h1 {
-  top: 44px;
-  height: 44px;
-  color: #101010;
-  font-size: 18px;
-  text-align: center;
-  font-family: Microsoft Yahei;
-  line-height: 44px;
-}
-html body main {
-  position: relative;
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+body main {
   flex: 1;
-  background-image: url(../img/advertisement-bg.jpg);
-  background-size: 1280px;
-  background-position: top center;
-  background-repeat: no-repeat;
-}
-html body main button {
-  position: absolute;
-  right: 14px;
-  top: 28px;
-  width: 105px;
-  height: 40px;
-  line-height: 20px;
-  border-radius: 20px 20px 20px 20px;
-  text-align: center;
-  border: 1px solid #bbbbbb;
-  display: flex;
+  padding: 15px;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  display: flex;
+  font-weight: bolder;
 }
-html body main button span {
-  font-size: 16px;
+body main .slideshow-box {
+  margin-bottom: 18px;
 }
-html body main button span:nth-child(2) {
-  font-size: 24px;
-  color: #ccc;
+body main .slideshow-box .slideshow {
+  width: 95%;
+  border-radius: 1.5rem;
+  height: 150px;
 }
-html body main .hold {
-  width: 238px;
-  color: #ffffff;
+body main .slideshow-box .slideshow img {
+  width: 100%;
+  height: 100%;
+}
+body main .today {
+  height: 150px;
+  width: 95%;
+  display: flex;
+  margin-bottom: 18px;
+}
+body main .today div {
+  opacity: 0.73;
+  border-radius: 1.5rem;
+  padding: 15px;
+  font-size: 20px;
+  display: flex;
+  font-family: PingFangSC-bold;
+  color: #004e73;
+}
+body main .today div:first-child {
+  flex: 2;
+  margin-right: 4%;
+  background: #1592CC url("../img/index-card-rank.png") no-repeat left -15px bottom 10px;
+  background-size: 112px 112px;
+  position: relative;
+}
+body main .today div:first-child .ranking {
+  position: absolute;
+  height: 112px;
+  line-height: 112px;
+  right: 15px;
+  bottom: 0;
   font-size: 48px;
-  text-align: center;
-  transform: scale(0.1);
-  animation: move 1.3s linear forwards;
+  color: white;
 }
-@keyframes move {
-  100% {
-    transform: translateY(180px) scale(1.5);
-  }
+body main .today div:nth-child(2) {
+  flex: 3;
+  background: #7BCBF5 url("../img/index-card-sum.png") no-repeat left 10px bottom 10px;
+  background-size: 110px 110px;
+  position: relative;
+}
+body main .today div:nth-child(2) .today-card {
+  position: absolute;
+  right: 15px;
+  bottom: 25px;
+  width: 100px;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 16px;
+  color: #004e73;
+  font-size: 18px;
+  font-family: Arial;
+  border: 3px solid #005177;
+}
+body main .movementData {
+  height: 110px;
+  width: 95%;
+  display: flex;
+  margin-bottom: 18px;
+  justify-content: space-between;
+}
+body main .movementData div {
+  opacity: 0.73;
+  border-radius: 1.5rem;
+  padding: 15px;
+  font-size: 20px;
+  display: flex;
+  font-family: PingFangSC-bold;
+  background-size: 20%;
+  color: white;
+}
+body main .movementData div:first-child {
+  margin-right: 4%;
+  flex: 1;
+  background: url("../img/index-card-data.png") center;
+}
+body main .movementData div:nth-child(2) {
+  flex: 1;
+  background: #9cbce1;
+  position: relative;
+  color: #004e73;
+}
+body main .movementData div:nth-child(2) p:nth-child(2) {
+  position: absolute;
+  right: 15px;
+  bottom: 19px;
+}
+body main .movementData div:nth-child(2) p:nth-child(2) .medal {
+  font-size: 48px;
+}
+body main .trainingCourse {
+  width: 95%;
+  height: 110px;
+  color: white;
+  background: url("../img/course-img04.jpg") center;
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-family: PingFangSC-bold;
+  background-size: cover;
+  padding: 15px;
+  border-radius: 1.5rem;
+}
+body main .outdoorRunning {
+  width: 95%;
+  height: 110px;
+  color: white;
+  background: url("../img/index-card-run.png") center;
+  background-size: cover;
+  font-size: 20px;
+  font-family: PingFangSC-bold;
+  padding: 15px;
+  border-radius: 1.5rem;
 }
 /*# sourceMappingURL=index.css.map */

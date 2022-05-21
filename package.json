@@ -31,6 +31,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "captcha-mini": "^1.1.0",
-    "qs": "^6.10.3"
+    "qs": "^6.10.3",
+    "swiper": "^8.1.5"
   }
 }

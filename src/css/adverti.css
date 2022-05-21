@@ -1,0 +1,62 @@
+html body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+html body header h1 {
+  top: 44px;
+  height: 44px;
+  color: #101010;
+  font-size: 18px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  line-height: 44px;
+}
+html body main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-image: url(../img/advertisement-bg.jpg);
+  background-size: 1280px;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+html body main button {
+  position: absolute;
+  right: 14px;
+  top: 28px;
+  width: 105px;
+  height: 40px;
+  line-height: 20px;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+  border: 1px solid #bbbbbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html body main button span {
+  font-size: 16px;
+}
+html body main button span:nth-child(2) {
+  font-size: 24px;
+  color: #ccc;
+}
+html body main .hold {
+  width: 238px;
+  color: #ffffff;
+  font-size: 48px;
+  text-align: center;
+  transform: scale(0.1);
+  animation: move 1.3s linear forwards;
+}
+@keyframes move {
+  100% {
+    transform: translateY(180px) scale(1.5);
+  }
+}
+/*# sourceMappingURL=adverti.css.map */

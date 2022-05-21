@@ -31,7 +31,7 @@ passwordToLogin.onclick = function(){
 let btn = document.querySelector('.btn');
 let warn = document.querySelector('.warn');
 function getValue(name){
-    return document.querySelector(name).value;
+    return document.querySelector(name).value.trim();
 }
 // 点击注册按钮后，要进行以下流程处理：
 // 1.表单验证：判空、手机号格式、验证码、密码一致性
@@ -71,7 +71,7 @@ btn.onclick = function(){
     if(password !== repassword){
         warn.innerHTML = '两次密码不一致';
     }
-    axios.post('http://139.9.177.51:8099/users/add',{
+    axios.post('http://139.9.177.51:3701/api/user/register',{
         account:phone,
         password:password
     }).then(res=>{
