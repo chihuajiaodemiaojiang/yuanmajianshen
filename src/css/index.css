@@ -11,15 +11,13 @@ body main {
   display: flex;
   font-weight: bolder;
 }
-body main .slideshow-box {
+body main .slideshow {
   margin-bottom: 18px;
-}
-body main .slideshow-box .slideshow {
   width: 95%;
   border-radius: 1.5rem;
   height: 150px;
 }
-body main .slideshow-box .slideshow img {
+body main .slideshow img {
   width: 100%;
   height: 100%;
 }
