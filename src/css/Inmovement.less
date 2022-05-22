@@ -1,0 +1,106 @@
+body {
+  background: rgb(88, 177, 217);
+  padding: 20px;
+  header {
+    height: 80px;
+    p:first-child {
+      color: rgba(170, 217, 247, 100);
+      margin-bottom: 8px;
+    }
+    p:nth-child(2) {
+      color: rgba(255, 255, 255, 100);
+      font-size: 24px;
+      display: inline-block;
+    }
+    p:nth-child(3) {
+      color: rgba(255, 255, 255, 100);
+      font-size: 24px;
+      float: right;
+    }
+    p:nth-child(4) {
+      color: rgba(255, 255, 255, 100);
+      font-size: 27px;
+      float: right;
+      margin-right: 24px;
+    }
+  }
+  main {
+    .mileage {
+      flex: 3;
+      color: rgba(255, 255, 255, 100);
+      font-size: 100px;
+      span {
+        font-size: 16px;
+      }
+    }
+    .orientation {
+      flex: 1;
+      color: rgb(171, 221, 253);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 90px;
+      span:nth-child(2) {
+        display: inline-block;
+        flex: 1;
+        border-bottom: 1px dashed rgb(255, 255, 255);
+        margin-left: 24px;
+        margin-right: 24px;
+      }
+      span:nth-child(3) {
+        display: inline-block;
+        right: 0;
+        font-size: 36px;
+        color: white;
+      }
+    }
+    .calorie {
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      p {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-size: 44px;
+        color: white;
+        width: 30%;
+        text-align: center;
+        span:first-child {
+          margin-top: 10px;
+          font-size: 14px;
+          display: block;
+          margin-bottom: 18px;
+        }
+        span:nth-child(2) {
+          display: block;
+          font-size: 28px;
+        }
+      }
+    }
+    .control {
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .suspended {
+        width: 120px;
+        height: 120px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2em;
+        color: #7bcbf5;
+        span {
+          margin-top: 0.2em;
+          font-size: 0.5em;
+        }
+      }
+    }
+  }
+}

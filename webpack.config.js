@@ -17,7 +17,12 @@ module.exports = {
     login: "./src/js/login.js", // 登录页
     index: "./src/js/index.js", // 首页
     account: "./src/js/account.js", // 账号页
-    drill: "./src/js/drill.js", // 账号页
+    drill: "./src/js/drill.js", // 训练页
+    running: "./src/js/running.js", // 跑步页
+    riding: "./src/js/riding.js", // 骑行页
+    VideoDetails: "./src/js/VideoDetails.js", // 视频详情页
+    playback: "./src/js/playback.js", // 播放页
+    Inmovement: "./src/js/Inmovement.js", // 运动页
   },
   // 2. 出口
   output: {
@@ -56,7 +61,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(gif|png|jpg|webp|jpeg)$/,
+        test: /\.(gif|png|jpg|webp|jpeg|mp4)$/,
         loader: "url-loader",
         options: {
           name: "[hash:10].[ext]", // 10位随机数组成的图片名
@@ -119,6 +124,32 @@ module.exports = {
       filename: "drill.html",
       chunks: ["drill", "commoncss"],
     }),
+    new HtmlWebpackPlugin({
+      template: "./src/running.html",
+      filename: "running.html",
+      chunks: ["running", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/riding.html",
+      filename: "riding.html",
+      chunks: ["riding", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/VideoDetails.html",
+      filename: "VideoDetails.html",
+      chunks: ["VideoDetails", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/playback.html",
+      filename: "playback.html",
+      chunks: ["playback", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/Inmovement.html",
+      filename: "Inmovement.html",
+      chunks: ["Inmovement", "commoncss"],
+    }),
+
     new MiniCssExtractPlugin({
       filename: "css/[name].css", // 输出到css文件夹里
     }),

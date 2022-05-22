@@ -1,6 +1,8 @@
 require("../css/index.less");
 require("../../node_modules/swiper/swiper-bundle.min.js");
 require("../../node_modules/swiper/swiper-bundle.min.css");
+let utils = require("./utils.js");
+utils.getfooter("index");
 let axios = require("axios");
 var mySwiper = new Swiper(".swiper", {
   direction: "horizontal", // 垂直切换选项
@@ -49,8 +51,3 @@ function card() {
       console.log(err);
     });
 }
-let account3 = document.querySelector(".account3");
-let sports2 = document.querySelector(".sports2");
-account3.onclick = function () {
-  window.location.href = "./account.html";
-};

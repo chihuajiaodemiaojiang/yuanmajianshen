@@ -1,0 +1,75 @@
+main {
+  //background: #101010;
+  justify-content: center;
+  .video-box {
+    height: 80%;
+    position: relative;
+    video {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+    span {
+      position: absolute;
+      color: white;
+      z-index: 1000;
+      top: 50%;
+      font-size: 60px;
+      transform: translateY(-50%);
+    }
+    .play {
+      transform: translate(-50%, -50%);
+      left: 50%;
+    }
+    .icon-tubiaozhizuomoban1 {
+      left: 10%;
+      display: none;
+    }
+    .icon-tubiaozhizuomoban {
+      right: 10%;
+      display: none;
+    }
+  }
+  .video-title {
+    color: white;
+    align-self: start;
+  }
+  .progressBar {
+    height: 2px;
+    margin-top: -5px;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ccc;
+    position: relative;
+  }
+
+  .now {
+    position: relative;
+    background-color: lightskyblue;
+    height: 2px;
+    width: 0;
+  }
+  .progressBarHead {
+    background-color: lightskyblue;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    position: absolute;
+    z-index: 1000;
+  }
+  .video-title {
+    text-indent: 1em;
+    margin-top: 5%;
+    position: relative;
+    color: black;
+    p:first-child {
+      font-size: 60px;
+      text-align: left;
+      font-family: PingFangSC-bold;
+    }
+  }
+}

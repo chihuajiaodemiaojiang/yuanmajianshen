@@ -1,8 +1,20 @@
 main {
   background-color: rgba(232, 232, 232, 100);
-  overflow-y: auto;
-  div {
-    flex-shrink: 0;
+  .title {
+    font-size: 18px;
+    position: relative;
+    margin-bottom: 15px;
+    span:first-child {
+      color: #4294ff;
+    }
+    span:last-child {
+      position: absolute;
+      transform: translate(15%, -10%);
+      font-weight: bolder;
+      right: 0;
+      font-size: 20px;
+      color: rgba(138, 138, 138, 100);
+    }
   }
   .userinfo {
     background: white;
@@ -48,25 +60,78 @@ main {
       white-space: nowrap;
     }
   }
-  .movementData {
+  .movementData,
+  .myBadge {
     height: 170px;
     padding: 20px 25px;
     background: white;
-
-    .title {
-      font-size: 18px;
-      position: relative;
-      span:first-child {
-        color: #4294ff;
-      }
-      span:last-child {
-        position: absolute;
-        transform: translate(15%, -10%);
-        font-weight: bolder;
-        right: 0;
-        font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .movementData {
+    .movementData-main {
+      display: flex;
+      flex: 1;
+      p:first-child {
+        align-self: start;
+        height: 15px;
+        margin-bottom: 18px;
         color: rgba(138, 138, 138, 100);
       }
+      p:nth-child(2) {
+        span:first-child {
+          color: rgba(66, 148, 255, 100);
+          font-size: 40px;
+          font-family: SFUIText-regular;
+          justify-items: start;
+        }
+        span:nth-child(2) {
+          font-size: 14px;
+        }
+      }
+      p:nth-child(3) {
+        font-size: 14px;
+        font-family: SFUIText-regular;
+        white-space: nowrap;
+      }
+      .theMovementTime {
+        display: flex;
+        flex: 1;
+        border-right: 1px dashed rgba(187, 187, 187, 100);
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
+      .useThisWeek {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        flex-direction: column;
+        text-indent: 8px;
+      }
     }
+  }
+  .myBadge {
+    .myBadge-main {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      .badge-item {
+        width: 100px;
+        height: 100px;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid rgba(187, 187, 187, 100);
+      }
+    }
+  }
+  .exitTheLogin {
+    text-align: center;
+    line-height: 55px;
+    background: white;
+    color: rgba(66, 148, 255, 100);
+    font-size: 18px;
+    font-family: PingFangSC-regular;
   }
 }

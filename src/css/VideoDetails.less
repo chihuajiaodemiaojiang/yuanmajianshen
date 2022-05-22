@@ -1,0 +1,150 @@
+main {
+  .video-img {
+    height: 50%;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    span:nth-child(3) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 200%);
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .icon-bofang {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 60px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 100);
+      z-index: 1000;
+    }
+  }
+  .video-info {
+    display: flex;
+    height: 50%;
+    padding: 25px;
+    flex-direction: column;
+    align-items: center;
+    .video-title {
+      border-bottom: 1px solid black;
+      padding-bottom: 10px;
+      .icon-xiangyoujiantou:before {
+        position: absolute;
+        right: -15px;
+        bottom: 0;
+        font-weight: bolder;
+      }
+      .icon-xiangyoujiantou {
+        float: right;
+        margin-left: 5px;
+        position: relative;
+      }
+      h2 {
+        margin-bottom: 5px;
+      }
+      span {
+        font-size: 14px;
+        color: #9a9a9a;
+      }
+      .video-title-info-name,
+      .video-title-info-time {
+        font-size: 18px;
+        color: black;
+      }
+    }
+    .video-desc {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .headBox {
+        margin-right: 15px;
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .userName {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .occupation {
+        color: rgba(138, 138, 138, 100);
+        font-size: 14px;
+      }
+      button {
+        width: 80px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 23px;
+        background-color: rgba(66, 148, 255, 100);
+        color: rgba(249, 249, 249, 100);
+        font-size: 14px;
+        text-align: center;
+        font-family: Arial;
+      }
+    }
+    .synopsis {
+      color: #8a8a8aff;
+      line-height: 1.5;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .practiceData {
+      display: flex;
+      margin-bottom: 35px;
+      div {
+        width: 50%;
+        height: 100%;
+        span {
+          font-size: 14px;
+          color: #9a9a9a;
+          display: inline-block;
+        }
+        span:first-child {
+          font-size: 16px;
+          color: #000;
+          margin-bottom: 11px;
+        }
+      }
+      div:first-child {
+        border-right: 1px dashed rgba(187, 187, 187, 100);
+        margin-right: 27px;
+      }
+    }
+
+    .video-footer {
+      padding: 32px;
+      button {
+        width: 100%;
+        height: 55px;
+        line-height: 26px;
+        border-radius: 27px;
+        background-color: rgba(66, 148, 255, 100);
+        color: rgba(255, 255, 255, 100);
+        font-size: 18px;
+        text-align: center;
+        font-family: Arial;
+      }
+    }
+  }
+}
