@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>注册页</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_3416193_0kxkhvwtww6r.css">
-</head>
+    <link
+      href="//at.alicdn.com/t/font_3416193_9ktk13ni2v4.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-<header class="container">
-    <p class="passwordToLogin">密码登录</p>
-    <p>手机号登录/注册</p>
-    <p>快速找到好友, 一站式记录你的运动</p>
-</header>
+  <body>
+    <header class="wh100">
+      <p class="passwordToLogin">密码登录</p>
+      <p>手机号登录/注册</p>
+      <p>快速找到好友, 一站式记录你的运动</p>
+    </header>
 
-<!--	登入表单 手机号,验证码,密码,确认密码,登入按钮-->
-<main class="container">
-    <form>
+    <!--	登入表单 手机号,验证码,密码,确认密码,登入按钮-->
+    <main class="wh100">
+      <form>
         <div class="form-group phone">
-            <select>
-                <option>+86</option>
-                <option>+852</option>
-                <option>+853</option>
-                <option>+886</option>
-            </select>
-            <!--				<span class="iconfont icon-xiala"></span>-->
-            <input type="text" class="form-control" id="phone" placeholder="请输入手机号">
+          <select>
+            <option>+86</option>
+            <option>+852</option>
+            <option>+853</option>
+            <option>+886</option>
+          </select>
+          <input
+            class="form-control"
+            id="phone"
+            placeholder="请输入手机号"
+            type="text"
+          />
         </div>
         <div class="form-group verificationCode">
-            <input type="text" class="form-control" id="code" placeholder="请输入验证码">
-            <canvas id="captcha" class="ml12" width="120" height="50"></canvas>
+          <input
+            class="form-control"
+            id="code"
+            placeholder="请输入验证码"
+            type="text"
+          />
+          <canvas class="ml12" height="50" id="captcha" width="120"></canvas>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="password" placeholder="请输入密码">
+          <input
+            class="form-control"
+            id="password"
+            placeholder="请输入密码"
+            type="password"
+          />
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="repassword" placeholder="请输入密码">
+          <input
+            class="form-control"
+            id="repassword"
+            placeholder="请输入密码"
+            type="password"
+          />
         </div>
-        <button type="button" class="btn btn-primary">注册账号</button>
+        <button class="btn btn-primary" type="button">注册账号</button>
         <div class="links">
-            <span class="warn"></span>
-            <span class="iconfont icon-weixin"> 微信注册</span>
+          <span class="warn"></span>
+          <span class="iconfont icon-weixin"> 微信注册</span>
         </div>
-    </form>
-</main>
-<footer class="container">
-    <p>- HOLD ON -</p>
-</footer>
-</body>
-
+      </form>
+    </main>
+    <footer class="wh100">
+      <p>- HOLD ON -</p>
+    </footer>
+  </body>
 </html>

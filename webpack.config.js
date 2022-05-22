@@ -17,6 +17,7 @@ module.exports = {
     login: "./src/js/login.js", // 登录页
     index: "./src/js/index.js", // 首页
     account: "./src/js/account.js", // 账号页
+    drill: "./src/js/drill.js", // 账号页
   },
   // 2. 出口
   output: {
@@ -112,6 +113,11 @@ module.exports = {
       template: "./src/account.html",
       filename: "account.html",
       chunks: ["account", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/drill.html",
+      filename: "drill.html",
+      chunks: ["drill", "commoncss"],
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].css", // 输出到css文件夹里

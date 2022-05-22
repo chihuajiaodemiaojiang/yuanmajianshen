@@ -1,43 +1,45 @@
-require('../css/login.less')
-let axios=require('axios')
-function getValue(name){
-    return document.querySelector(name).value;
+require("../css/login.less");
+let axios = require("axios");
+const utils = require("./utils");
+function getValue(name) {
+  return document.querySelector(name).value.trim();
 }
-let phone = getValue('#phone');
-let password = getValue('#password');
-let warns = document.querySelector('.warns');
-let btn = document.querySelector('.btn');
-btn.onclick = function(){
-axios.post('http://139.9.177.51:8099/users/login', {
-    account: phone,
-    password: password
-}).then(res=>{
-    console.log(res);
-// 登录成功
-    if(res.data.msg === 'OK') {
-        const userData = res.data.user
-// 将用户数据存储在本地存储中
-        window.localStorage.setItem('user', JSON.stringify({
-            userId: userData.userId, // 用户 ID
-            account: userData.userData, // 账号
-            nickname: userData.nickname, // 昵称
-            gender: userData.gender, // 性别
-            birthday: userData.birthday, // 生日
-            imgurl: userData.imgurl, // 头像图片地址
-            address: userData.address, // 省市区地址
-            sign: userData.sign // 个人签名
-        }));
-        window.localStorage.setItem('token', res.data.token);
-// URL 跳转至首页
-        window.location.href = './index.html';
-    } else {
-// 登录失败
-        warns.textContent = res.msg;
-    }
-})
-}
-let registerAnAccount = document.querySelector('.registerAnAccount');
-registerAnAccount.onclick = function(){
-    window.location.href = './reg.html';
-}
-
+let btn = document.querySelector(".btn");
+btn.onclick = function () {
+  let phone = getValue("#phone");
+  let password = getValue("#password");
+  console.log(phone, password);
+  if (!phone) {
+    utils.getAlertBox("shouji", "手机号不能为空");
+    return;
+  }
+  if (!password) {
+    utils.getAlertBox("mima", "密码不能为空");
+    return;
+  }
+  axios
+    .post("http://139.9.177.51:3701/api/user/login", {
+      account: phone,
+      password: password,
+    })
+    .then((res) => {
+      console.log(res);
+      // 登录成功
+      if (res.data.errno === 0) {
+        localStorage.setItem("userObj", JSON.stringify(res.data.data));
+        utils.getAlertBox("dengluchenggong", "登入成功", function () {
+          location.href = "./index.html";
+        });
+      } else {
+        // 登录失败
+        utils.getAlertBox("denglushibai", res.data.message);
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+};
+let registerAnAccount = document.querySelector(".registerAnAccount");
+registerAnAccount.onclick = function () {
+  window.location.href = "./reg.html";
+};

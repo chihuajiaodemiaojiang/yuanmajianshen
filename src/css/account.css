@@ -1,0 +1,72 @@
+main {
+  background-color: #e8e8e8;
+  overflow-y: auto;
+}
+main div {
+  flex-shrink: 0;
+}
+main .userinfo {
+  background: white;
+  height: 219px;
+  padding: 34px 40px 20px 20px;
+  margin-bottom: 20px;
+}
+main .userinfo .theUserDetails {
+  display: flex;
+  height: 120px;
+  margin-bottom: 20px;
+}
+main .userinfo .theUserDetails .headBox {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  border: 3px solid #4294ff;
+  margin-right: 15px;
+  position: relative;
+}
+main .userinfo .theUserDetails .headBox .vip {
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+}
+main .userinfo .theUserDetails .headBox .vip img {
+  width: 45px;
+  height: 22px;
+}
+main .userinfo .theUserDetails .userName {
+  flex: 1;
+  line-height: 120px;
+  font-size: 22px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+main .userinfo .personalizedSignature {
+  height: 25px;
+  overflow: hidden;
+  color: #8a8a8a;
+  font-size: 18px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  white-space: nowrap;
+}
+main .movementData {
+  height: 170px;
+  padding: 20px 25px;
+  background: white;
+}
+main .movementData .title {
+  font-size: 18px;
+  position: relative;
+}
+main .movementData .title span:first-child {
+  color: #4294ff;
+}
+main .movementData .title span:last-child {
+  position: absolute;
+  transform: translate(15%, -10%);
+  font-weight: bolder;
+  right: 0;
+  font-size: 20px;
+  color: #8a8a8a;
+}
+/*# sourceMappingURL=account.css.map */
