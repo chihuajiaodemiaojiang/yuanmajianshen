@@ -3,6 +3,7 @@ let CaptchaMini = require("captcha-mini");
 let captchaDrawer = new CaptchaMini();
 let captchaCode = "";
 let axios = require("axios");
+let utils = require("./utils.js");
 captchaDrawer.draw(document.querySelector("#captcha"), function (code) {
   captchaCode = code;
 });
@@ -44,32 +45,33 @@ btn.onclick = function () {
   let password = getValue("#password");
   let repassword = getValue("#repassword");
   if (!phone) {
-    warn.innerHTML = "手机号不能为空";
+    utils.getAlertBox("shouji", "手机号不能为空");
     return;
   }
   if (!/^1[3-9]\d{9}$/.test(phone)) {
-    warn.innerHTML = "手机号格式不正确";
+    utils.getAlertBox("shouji", "手机号格式不正确");
     return;
   }
   if (!code) {
-    warn.innerHTML = "验证码不能为空";
+    utils.getAlertBox("yanzhengmacuowu", "验证码不能为空");
     return;
   }
   if (code !== captchaCode) {
-    warn.innerHTML = "验证码错误";
+    utils.getAlertBox("yanzhengmacuowu", "验证码错误");
     return;
   }
   // 密码格式
   if (!/^\w{6,16}$/.test(password)) {
-    warn.innerHTML = "密码格式不正确";
+    utils.getAlertBox("mima", "密码格式不正确");
     return;
   }
   if (!password) {
-    warn.innerHTML = "密码不能为空";
+    utils.getAlertBox("mima", "密码不能为空");
     return;
   }
   if (password !== repassword) {
-    warn.innerHTML = "两次密码不一致";
+    utils.getAlertBox("mima", "两次密码不一致");
+    return;
   }
   axios
     .post("http://139.9.177.51:3701/api/user/register", {
@@ -77,13 +79,13 @@ btn.onclick = function () {
       password: password,
     })
     .then((res) => {
-      console.log(res.data.msg);
-      if (res.data.msg === "OK") {
-        // 注册成功，自动登录
-        // 跳转到首页
-        location.href = "./login.html";
+      console.log(res);
+      if (res.data.errno === 0) {
+        utils.getAlertBox("zhucechenggong", "注册成功", function () {
+          location.href = "./login.html";
+        });
       } else {
-        warn.innerHTML = res.data.msg;
+        utils.getAlertBox("__zhuceshibai", res.data.message);
       }
     });
 };

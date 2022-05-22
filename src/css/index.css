@@ -43,7 +43,7 @@ body main .today div {
 body main .today div:first-child {
   flex: 2;
   margin-right: 4%;
-  background: #1592CC url("../img/index-card-rank.png") no-repeat left -15px bottom 10px;
+  background: #1592cc url("../img/index-card-rank.png") no-repeat left -15px bottom 10px;
   background-size: 112px 112px;
   position: relative;
 }
@@ -58,7 +58,7 @@ body main .today div:first-child .ranking {
 }
 body main .today div:nth-child(2) {
   flex: 3;
-  background: #7BCBF5 url("../img/index-card-sum.png") no-repeat left 10px bottom 10px;
+  background: #7bcbf5 url("../img/index-card-sum.png") no-repeat left 10px bottom 10px;
   background-size: 110px 110px;
   position: relative;
 }
@@ -97,6 +97,7 @@ body main .movementData div:first-child {
   margin-right: 4%;
   flex: 1;
   background: url("../img/index-card-data.png") center;
+  background-size: cover;
 }
 body main .movementData div:nth-child(2) {
   flex: 1;
