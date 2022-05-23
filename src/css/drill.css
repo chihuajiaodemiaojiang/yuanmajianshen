@@ -43,7 +43,7 @@ main .newcourse li {
   margin-top: 10px;
   height: 210px;
   border-radius: 15px;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
 }
 main .newcourse li img {
   width: 100%;
@@ -74,7 +74,7 @@ main .courses li {
   margin-top: 15px;
   height: 140px;
   border-radius: 15px;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
 }
 main .courses li img {
   width: 100%;
@@ -99,7 +99,7 @@ main .courses li .info {
 }
 footer {
   height: 60px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 footer ul {
   display: flex;
