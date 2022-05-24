@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>用户资料修改</title>
+    <link
+      href="http://at.alicdn.com/t/font_3419445_wtk5pld2gso.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/weui/2.5.4/style/weui.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <a class="iconfont icon-fanhui" href="./account.html"></a>
+      <h3>个人资料</h3>
+    </header>
+    <main>
+      <!-- 昵称 -->
+      <div class="weui-cell weui-cell_active" id="js_cell">
+        <div class="weui-cell__hd"><span class="weui-label">昵称</span></div>
+        <div class="weui-cell__bd weui-flex">
+          <input
+            class="weui-input"
+            id="nickname"
+            placeholder="请输入昵称"
+            type="text"
+          />
+        </div>
+      </div>
+      <!-- 性别 -->
+      <div
+        aria-haspopup="listbox"
+        class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+        id="showSexPicker"
+        role="button"
+        wah-hotarea="touchend"
+      >
+        <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
+        <div class="weui-cell__bd">
+          <div class="weui-select" id="gender">未选择</div>
+        </div>
+      </div>
+      <!-- 生日 -->
+      <div
+        aria-haspopup="listbox"
+        class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+        id="showDatePicker"
+        role="button"
+        wah-hotarea="touchend"
+      >
+        <div class="weui-cell__hd"><label class="weui-label">生日</label></div>
+        <div class="weui-cell__bd">
+          <div class="weui-select" id="birthday">未选择</div>
+        </div>
+      </div>
+      <!-- 所在省份 -->
+      <div
+        aria-haspopup="listbox"
+        class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+        id="showProvincePicker"
+        role="button"
+        wah-hotarea="touchend"
+      >
+        <div class="weui-cell__hd">
+          <label class="weui-label">所在省份</label>
+        </div>
+        <div class="weui-cell__bd">
+          <div class="weui-select" id="province">未选择</div>
+        </div>
+      </div>
+      <!-- 所在城市 -->
+      <div
+        aria-haspopup="listbox"
+        class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+        id="showDatePicker"
+        role="button"
+        wah-hotarea="touchend"
+      >
+        <div class="weui-cell__hd">
+          <label class="weui-label">所在城市</label>
+        </div>
+        <div class="weui-cell__bd">
+          <div class="weui-select" id="city">未选择</div>
+        </div>
+      </div>
+      <!-- 个人简介 -->
+
+      <div class="weui-cells weui-cells_form">
+        <div class="sign">个人简介</div>
+        <div class="weui-cell weui-cell_active">
+          <div class="weui-cell__bd sign-cont">
+            <textarea
+              class="weui-textarea"
+              id="sign"
+              maxlength="20"
+              placeholder="请介绍一下自己"
+              rows="3"
+            ></textarea>
+            <div aria-live="polite" class="weui-textarea-counter" role="option">
+              <span id="signNum">0</span>/20
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+  </body>
+</html>

@@ -34,6 +34,7 @@ main .newcourse li .title {
 main .newcourse li .info {
   text-indent: 16px;
   font-size: 12px;
+  padding: 0 5px;
   color: #9a9a9a;
 }
 main .courses {

@@ -23,6 +23,7 @@ module.exports = {
     VideoDetails: "./src/js/VideoDetails.js", // 视频详情页
     playback: "./src/js/playback.js", // 播放页
     Inmovement: "./src/js/Inmovement.js", // 运动页
+    modify: "./src/js/modify.js", // 修改页
   },
   // 2. 出口
   output: {
@@ -148,6 +149,11 @@ module.exports = {
       template: "./src/Inmovement.html",
       filename: "Inmovement.html",
       chunks: ["Inmovement", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/modify.html",
+      filename: "modify.html",
+      chunks: ["modify", "commoncss"],
     }),
 
     new MiniCssExtractPlugin({

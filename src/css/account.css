@@ -36,12 +36,25 @@ main .userinfo .theUserDetails .headBox {
   margin-right: 15px;
   position: relative;
 }
+main .userinfo .theUserDetails .headBox #upheadimg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  z-index: 9999;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+main .userinfo .theUserDetails .headBox .headers {
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  object-fit: cover;
+}
 main .userinfo .theUserDetails .headBox .vip {
   position: absolute;
   right: -20px;
   bottom: 0;
-}
-main .userinfo .theUserDetails .headBox .vip img {
   width: 45px;
   height: 22px;
 }
@@ -111,7 +124,7 @@ main .movementData .movementData-main .useThisWeek {
 main .myBadge .myBadge-main {
   display: flex;
   flex: 1;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 main .myBadge .myBadge-main .badge-item {
   width: 100px;
@@ -119,7 +132,6 @@ main .myBadge .myBadge-main .badge-item {
   line-height: 20px;
   text-align: center;
   border-radius: 50%;
-  border: 1px solid #bbbbbb;
 }
 main .exitTheLogin {
   text-align: center;

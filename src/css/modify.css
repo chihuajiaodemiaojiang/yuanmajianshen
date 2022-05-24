@@ -1,0 +1,57 @@
+header {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background-color: #4294ff;
+  text-align: center;
+}
+header h3 {
+  display: inline-block;
+  font-size: 14px;
+}
+header a {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.weui-input {
+  text-align: right;
+}
+.weui-select {
+  text-align: right;
+}
+.weui-cell_active:active:after {
+  content: "";
+  background-color: transparent;
+}
+main .sign {
+  padding-left: 16px;
+  margin: 20px 0;
+}
+main .sign-cont {
+  background-color: #e5e5e5;
+}
+main .weui-cell,
+main .weui-cells {
+  width: 95%;
+}
+main .weui-cell {
+  flex: 1;
+}
+main .weui-cells {
+  flex: 3;
+}
+main .weui-cell_active,
+main .sign-cont {
+  height: 80%;
+  width: 100%;
+}
+main .weui-textarea {
+  height: 80%;
+}
+/*# sourceMappingURL=modify.css.map */
