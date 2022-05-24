@@ -13,7 +13,7 @@ userinfo.addEventListener("click", function (e) {
   console.log(e.target);
   if (e.target.id !== "upheadimg") {
     console.log(111);
-    location.href = "../modify.html";
+    location.href = "./modify.html";
   }
 });
 console.log(upheadimg);

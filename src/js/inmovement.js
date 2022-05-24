@@ -1,4 +1,4 @@
-require("../css/Inmovement.less");
+require("../css/inmovement.less");
 let mileage = document.querySelector(".mileage");
 let speed1 = document.querySelector(".speed1");
 let time1 = document.querySelector(".time1");

@@ -12,7 +12,7 @@ go.onclick = function () {
     go.innerHTML = num;
     if (num <= 0) {
       go.innerHTML = "GO";
-      location.href = "../Inmovement.html";
+      location.href = "./inmovement.html";
       clearInterval(timer);
     }
   }, 1000);

@@ -22,7 +22,7 @@ module.exports = {
     riding: "./src/js/riding.js", // 骑行页
     VideoDetails: "./src/js/VideoDetails.js", // 视频详情页
     playback: "./src/js/playback.js", // 播放页
-    Inmovement: "./src/js/Inmovement.js", // 运动页
+    inmovement: "./src/js/inmovement.js", // 运动页
     modify: "./src/js/modify.js", // 修改页
   },
   // 2. 出口
@@ -146,9 +146,9 @@ module.exports = {
       chunks: ["playback", "commoncss"],
     }),
     new HtmlWebpackPlugin({
-      template: "./src/Inmovement.html",
-      filename: "Inmovement.html",
-      chunks: ["Inmovement", "commoncss"],
+      template: "./src/inmovement.html",
+      filename: "inmovement.html",
+      chunks: ["inmovement", "commoncss"],
     }),
     new HtmlWebpackPlugin({
       template: "./src/modify.html",
