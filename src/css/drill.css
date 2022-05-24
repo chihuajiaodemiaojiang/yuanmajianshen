@@ -2,34 +2,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-header {
-  height: 55px;
-  line-height: 55px;
-}
-header ul {
-  display: flex;
-  margin: 0 5%;
-  border-bottom: 1px solid #ddd;
-  justify-content: space-around;
-}
-header ul li a {
-  color: #9a9a9a;
-  font-size: 16px;
-}
-header ul .on {
-  border-bottom: 1px solid #4294ff;
-}
-header ul .on a {
-  font-size: 20px;
-  color: #4294ff;
-}
 main {
-  flex: 1;
   overflow-y: auto;
   padding: 0 5%;
-}
-main div {
-  flex-shrink: 0;
 }
 main .newcourse {
   margin-top: 15px;
@@ -53,7 +28,7 @@ main .newcourse li .title {
   padding: 5px 0;
   text-indent: 16px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: #101010;
 }
 main .newcourse li .info {
@@ -72,59 +47,28 @@ main .courses li {
   position: relative;
   overflow: hidden;
   margin-top: 15px;
-  height: 140px;
+  height: 210px;
   border-radius: 15px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
 }
 main .courses li img {
   width: 100%;
-  height: 140px;
+  height: 210px;
 }
 main .courses li .text {
   position: absolute;
   bottom: 30px;
-  left: 22px;
 }
 main .courses li .title {
   padding: 5px 0;
   text-indent: 16px;
   font-size: 16px;
-  font-weight: 700;
-  color: #101010;
+  font-weight: 500;
+  color: white;
 }
 main .courses li .info {
-  text-indent: 16px;
+  text-indent: 5px;
   font-size: 12px;
-  color: #101010;
-}
-footer {
-  height: 60px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-}
-footer ul {
-  display: flex;
-  height: 60px;
-  justify-content: space-around;
-  align-items: center;
-}
-footer ul .on .iconfont {
-  color: #4294ff;
-}
-footer ul .on a {
-  color: #4294ff;
-}
-footer ul li {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-footer ul li .iconfont {
-  font-size: 30px;
-  color: #8a8a8a;
-}
-footer ul li a {
-  font-size: 12px;
-  color: #8a8a8a;
+  color: #c7c7c7;
 }
 /*# sourceMappingURL=drill.css.map */
