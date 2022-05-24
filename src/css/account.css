@@ -1,9 +1,21 @@
 main {
   background-color: #e8e8e8;
-  overflow-y: auto;
 }
-main div {
-  flex-shrink: 0;
+main .title {
+  font-size: 18px;
+  position: relative;
+  margin-bottom: 15px;
+}
+main .title span:first-child {
+  color: #4294ff;
+}
+main .title span:last-child {
+  position: absolute;
+  transform: translate(15%, -10%);
+  font-weight: bolder;
+  right: 0;
+  font-size: 20px;
+  color: #8a8a8a;
 }
 main .userinfo {
   background: white;
@@ -49,24 +61,72 @@ main .userinfo .personalizedSignature {
   font-family: PingFangSC-regular;
   white-space: nowrap;
 }
-main .movementData {
+main .movementData,
+main .myBadge {
   height: 170px;
   padding: 20px 25px;
   background: white;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
-main .movementData .title {
-  font-size: 18px;
-  position: relative;
+main .movementData .movementData-main {
+  display: flex;
+  flex: 1;
 }
-main .movementData .title span:first-child {
-  color: #4294ff;
-}
-main .movementData .title span:last-child {
-  position: absolute;
-  transform: translate(15%, -10%);
-  font-weight: bolder;
-  right: 0;
-  font-size: 20px;
+main .movementData .movementData-main p:first-child {
+  align-self: start;
+  height: 15px;
+  margin-bottom: 18px;
   color: #8a8a8a;
+}
+main .movementData .movementData-main p:nth-child(2) span:first-child {
+  color: #4294ff;
+  font-size: 40px;
+  font-family: SFUIText-regular;
+  justify-items: start;
+}
+main .movementData .movementData-main p:nth-child(2) span:nth-child(2) {
+  font-size: 14px;
+}
+main .movementData .movementData-main p:nth-child(3) {
+  font-size: 14px;
+  font-family: SFUIText-regular;
+  white-space: nowrap;
+}
+main .movementData .movementData-main .theMovementTime {
+  display: flex;
+  flex: 1;
+  border-right: 1px dashed #bbbbbb;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+main .movementData .movementData-main .useThisWeek {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-indent: 8px;
+}
+main .myBadge .myBadge-main {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+main .myBadge .myBadge-main .badge-item {
+  width: 100px;
+  height: 100px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #bbbbbb;
+}
+main .exitTheLogin {
+  text-align: center;
+  line-height: 55px;
+  background: white;
+  color: #4294ff;
+  font-size: 18px;
+  font-family: PingFangSC-regular;
 }
 /*# sourceMappingURL=account.css.map */

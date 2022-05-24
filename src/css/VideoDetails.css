@@ -1,0 +1,147 @@
+main .video-img {
+  height: 50%;
+  position: relative;
+}
+main .video-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main .video-img span:nth-child(3) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  color: #fff;
+  font-weight: bold;
+}
+main .video-img .icon-bofang {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  z-index: 1000;
+}
+main .video-info {
+  display: flex;
+  height: 50%;
+  padding: 25px;
+  flex-direction: column;
+  align-items: center;
+}
+main .video-info .video-title {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+main .video-info .video-title .icon-xiangyoujiantou:before {
+  position: absolute;
+  right: -15px;
+  bottom: 0;
+  font-weight: bolder;
+}
+main .video-info .video-title .icon-xiangyoujiantou {
+  float: right;
+  margin-left: 5px;
+  position: relative;
+}
+main .video-info .video-title h2 {
+  margin-bottom: 5px;
+}
+main .video-info .video-title span {
+  font-size: 14px;
+  color: #9a9a9a;
+}
+main .video-info .video-title .video-title-info-name,
+main .video-info .video-title .video-title-info-time {
+  font-size: 18px;
+  color: black;
+}
+main .video-info .video-desc {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .video-info .video-desc .headBox {
+  margin-right: 15px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+main .video-info .video-desc .headBox img {
+  width: 100%;
+  height: 100%;
+}
+main .video-info .video-desc .userName {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+main .video-info .video-desc .occupation {
+  color: #8a8a8a;
+  font-size: 14px;
+}
+main .video-info .video-desc button {
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 23px;
+  background-color: #4294ff;
+  color: #f9f9f9;
+  font-size: 14px;
+  text-align: center;
+  font-family: Arial;
+}
+main .video-info .synopsis {
+  color: #8a8a8aff;
+  line-height: 1.5;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+main .video-info .practiceData {
+  display: flex;
+  margin-bottom: 35px;
+}
+main .video-info .practiceData div {
+  width: 50%;
+  height: 100%;
+}
+main .video-info .practiceData div span {
+  font-size: 14px;
+  color: #9a9a9a;
+  display: inline-block;
+}
+main .video-info .practiceData div span:first-child {
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 11px;
+}
+main .video-info .practiceData div:first-child {
+  border-right: 1px dashed #bbbbbb;
+  margin-right: 27px;
+}
+main .video-info .video-footer {
+  padding: 32px;
+}
+main .video-info .video-footer button {
+  width: 100%;
+  height: 55px;
+  line-height: 26px;
+  border-radius: 27px;
+  background-color: #4294ff;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  font-family: Arial;
+}
+/*# sourceMappingURL=VideoDetails.css.map */

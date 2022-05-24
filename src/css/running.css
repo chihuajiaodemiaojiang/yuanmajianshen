@@ -1,0 +1,70 @@
+main {
+  padding-bottom: 40px;
+  background: #f8f8f8;
+}
+main .MovementData {
+  height: 133px;
+  background: white;
+  padding: 14px 20px;
+}
+main .MovementData p:first-child {
+  margin-bottom: 7px;
+}
+main .MovementData p:nth-child(2) {
+  color: #4294ff;
+  font-size: 48px;
+  text-align: left;
+  font-family: PingFangSC-bold;
+  display: inline-block;
+}
+main .MovementData p:nth-child(3) {
+  display: inline-block;
+}
+main .map {
+  flex: 1;
+  background: white;
+  position: relative;
+  background: url("../img/map.png") no-repeat;
+  background-size: cover;
+}
+main .go {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 190px;
+  height: 190px;
+  background-color: rgba(66, 148, 255, 0.5);
+  color: #1592cc;
+  font-weight: bold;
+  line-height: 190px;
+  font-size: 90px;
+  text-align: center;
+  border-radius: 50%;
+}
+main .course {
+  height: 82px;
+  padding: 16px 20px;
+  background: white;
+  position: relative;
+}
+main .course p:first-child {
+  color: #333333;
+  font-size: 18px;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+main .course p:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  font-weight: bold;
+  color: #9a9a9a;
+}
+main .course p:nth-child(3) {
+  color: #9a9a9a;
+  font-size: 14px;
+}
+/*# sourceMappingURL=running.css.map */
