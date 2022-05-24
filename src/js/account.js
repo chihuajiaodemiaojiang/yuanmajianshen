@@ -8,12 +8,21 @@ let theMovementTimeMain = document.querySelector(".theMovementTime-main");
 let calorie1 = document.querySelector(".calorie1");
 let badgeItem = document.querySelectorAll(".badge-item");
 let upheadimg = document.querySelector("#upheadimg");
+let userinfo = document.querySelector(".userinfo");
+userinfo.addEventListener("click", function (e) {
+  console.log(e.target);
+  if (e.target.id !== "upheadimg") {
+    console.log(111);
+    location.href = "../modify.html";
+  }
+});
 console.log(upheadimg);
 let axios = require("axios");
 let userObj = JSON.parse(localStorage.getItem("userObj"));
 axios.defaults.headers.common["Authorization"] = "Bearer " + userObj.token;
 let api = "http://139.9.177.51:3701";
 axios.get(api + "/api/user/info").then((res) => {
+  console.log(res);
   if (res.data.errno === 0) {
     let data = res.data.data;
     console.log(data.badges);
@@ -22,7 +31,7 @@ axios.get(api + "/api/user/info").then((res) => {
     userName.textContent = data.nickName;
     personalizedSignature.textContent = data.sign
       ? data.sign
-      : "这个很懒,什么也没有留下";
+      : "这个人很懒,什么也没有留下";
     theMovementTimeMain.textContent = data.duration;
     calorie1.textContent = data.calorie;
     if (data.badges === 2) {
@@ -53,13 +62,16 @@ upheadimg.addEventListener("change", function () {
       if (res.data.errno === 0) {
         //  替换头像
         headers.src = api + res.data.data.url;
-        axios.post(api + '/api/user/changeInfo', {
-          imgUrl: res.data.data.url
-        }).then(function (res) {
-          console.log(res);
-        }).catch(function (err) {
-          console.log(err);
-        })
+        axios
+          .post(api + "/api/user/changeInfo", {
+            imgUrl: res.data.data.url,
+          })
+          .then(function (res) {
+            console.log(res);
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
       }
     })
     .catch((err) => {

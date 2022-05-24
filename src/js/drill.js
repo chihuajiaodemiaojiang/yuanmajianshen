@@ -17,30 +17,36 @@ axios.get(api + "/api/train/courseList").then(function (res) {
   data.forEach(function (item, index) {
     if (item.courseId === 1) {
       newcourse.innerHTML += `
-          <li>
-            <a href="./VideoDetails.html?courseId='${item.courseId}'">
-              <img alt="" src="${api}${item.imgurl}" />
+          <li >
+             <img alt="" src="${api}${item.imgurl}" data-title="${item.courseId}"/>
               <p class="title">${item.name}</p>
               <p class="info">
                 ${item.desc}
               </p>
-            </a>
           </li>
        `;
     } else {
       courses.innerHTML += `
-              <li>
-              <a href="./VideoDetails.html?courseId='${item.courseId}'">
-             <img alt="" src="${api}${item.imgurl}" />
-               <div class="text">
+           <li data-title="${item.courseId}">
+              <img alt="" src="${api}${item.imgurl}" data-title="${item.courseId}"/>
+              <div class="text">
               <p class="title">${item.name}</p>
               <p class="info">
                 ${item.desc}
               </p>
-            </div>
-            </a>
+              </div>
           </li>
           `;
+    }
+  });
+});
+
+let ul = document.querySelectorAll("main ul");
+ul.forEach(function (item, index) {
+  item.addEventListener("click", function (e) {
+    console.log(e.target);
+    if (e.target.nodeName === "IMG") {
+      location.href = "./VideoDetails.html?id=" + e.target.dataset.title;
     }
   });
 });

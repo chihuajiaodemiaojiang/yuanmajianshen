@@ -3,11 +3,11 @@ header {
   height: 50px;
   line-height: 50px;
   color: #fff;
-  background-color: #4294ff;
+  background-color: #4193fd;
   text-align: center;
   h3 {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
   }
   a {
     position: absolute;
@@ -36,14 +36,14 @@ header {
 main {
   .sign {
     padding-left: 16px;
-    margin: 20px 0;
+    margin: 10px 0;
   }
   .sign-cont {
     background-color: #e5e5e5;
   }
   .weui-cell,
   .weui-cells {
-    width: 95%;
+    width: 100%;
   }
   .weui-cell {
     flex: 1;
@@ -53,10 +53,19 @@ main {
   }
   .weui-cell_active,
   .sign-cont {
-    height: 80%;
+    height: 85%;
     width: 100%;
   }
   .weui-textarea {
     height: 80%;
   }
+}
+.weui-cell__bd {
+  width: 100%;
+}
+.weui-cell:before {
+  display: none;
+}
+.pd {
+  padding: 0 16px;
 }

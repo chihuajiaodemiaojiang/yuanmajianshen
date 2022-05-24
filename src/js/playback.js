@@ -12,6 +12,23 @@ let now = document.querySelector(".now");
 let timer = null;
 let timer1 = null;
 let theWidth = video.offsetWidth;
+let url = "http://139.9.177.51:3701/api/train/courseDetail";
+// 获取地址栏videoUrl和title
+let params = location.search;
+let str = params.slice(1);
+let arr = str.split("&");
+let newArr = [];
+arr.forEach(function (item) {
+  newArr.push(decodeURI(item.split("=")[1]));
+});
+let videoUrl = newArr[0];
+let title = newArr[1];
+console.log(videoUrl);
+console.log(title);
+let VIDEO = document.querySelector("#VIDEO");
+let Title = document.querySelector("#Title");
+Title.innerHTML = title;
+VIDEO.src = url + videoUrl;
 function bar() {
   progressBarHead.style.left =
     (video.currentTime / video.duration) * theWidth + "px";

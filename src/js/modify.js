@@ -2,11 +2,11 @@ require("../css/modify.less");
 let axios = require("axios");
 let api = "http://139.9.177.51:3701";
 let userObj = JSON.parse(localStorage.getItem("userObj"));
-// 设置axios请求头:
+function fillZero(n) {
+  return n < 10 ? "0" + n : n;
+}
 axios.defaults.headers.authorization = `Bearer ${userObj.token}`;
-
 window.addEventListener("load", function () {
-  // 获取相关元素
   let nickname = document.querySelector("#nickname");
   let gender = document.querySelector("#gender");
   let birthday = document.querySelector("#birthday");
@@ -55,10 +55,6 @@ window.addEventListener("load", function () {
           label: "女",
           value: 1,
         },
-        {
-          label: "人妖",
-          value: 2,
-        },
       ],
       {
         onConfirm: function (res) {
@@ -84,11 +80,6 @@ window.addEventListener("load", function () {
       title: "请选择生日",
     });
   });
-
-  // 补0函数
-  function fillZero(n) {
-    return n < 10 ? "0" + n : n;
-  }
 
   // 获取所有的省份
   let provinces = [];
