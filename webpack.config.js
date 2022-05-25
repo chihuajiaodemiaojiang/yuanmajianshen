@@ -24,6 +24,7 @@ module.exports = {
     playback: "./src/js/playback.js", // 播放页
     inmovement: "./src/js/inmovement.js", // 运动页
     modify: "./src/js/modify.js", // 修改页
+    sportsData: "./src/js/sportsData.js", // 运动数据页
   },
   // 2. 出口
   output: {
@@ -154,6 +155,11 @@ module.exports = {
       template: "./src/modify.html",
       filename: "modify.html",
       chunks: ["modify", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/sportsData.html",
+      filename: "sportsData.html",
+      chunks: ["sportsData", "commoncss"],
     }),
 
     new MiniCssExtractPlugin({

@@ -6,6 +6,7 @@ let go = document.querySelector("#go");
 let timer = null;
 let num = 4;
 go.onclick = function () {
+  clearInterval(timer);
   timer = setInterval(function () {
     console.log(111);
     num--;

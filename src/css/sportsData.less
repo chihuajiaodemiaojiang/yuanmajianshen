@@ -1,0 +1,102 @@
+main {
+  .My-sportsData {
+    flex: 2;
+    background: #4193fd;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .headPortrait {
+      flex: 2;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .icon-fanhui {
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        align-self: flex-start;
+      }
+      p {
+        font-size: 20px;
+        font-weight: bolder;
+        color: white;
+        align-self: center;
+      }
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        align-self: center;
+      }
+    }
+    .aggregateData {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      span {
+        font-size: 14px;
+      }
+      p:first-child {
+        color: rgba(170, 217, 247, 100);
+        font-size: 16px;
+        text-align: left;
+        font-family: PingFangSC-regular;
+        margin-bottom: 7%;
+      }
+      p:nth-child(2) {
+        color: rgba(255, 255, 255, 100);
+        font-size: 40px;
+        font-family: SFUIText-regular;
+      }
+      .min {
+        width: 50%;
+        border-right: 1px dashed rgba(255, 255, 255, 100);
+      }
+      .calorie {
+        width: 50%;
+        margin-left: 10%;
+      }
+    }
+    .cumulativeData {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      p:first-child {
+        color: rgba(170, 217, 247, 100);
+        font-size: 14px;
+        text-align: left;
+        font-family: PingFangSC-regular;
+        margin-bottom: 20%;
+      }
+      p:nth-child(2) {
+        color: rgba(255, 255, 255, 100);
+        font-size: 14px;
+        font-weight: bolder;
+        font-family: SFUIText-regular;
+      }
+    }
+  }
+  .dendrogram {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f7f7f7;
+    padding: 4% 0;
+    justify-content: space-between;
+    #exerciseTimeTree {
+      height: 48%;
+      border-radius: 2em;
+      background: #fff;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.18);
+    }
+    #pieChartOfSportsClassification {
+      height: 48%;
+      border-radius: 2em;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.18);
+      background: #fff;
+    }
+  }
+}
