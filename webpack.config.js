@@ -25,6 +25,7 @@ module.exports = {
     inmovement: "./src/js/inmovement.js", // 运动页
     modify: "./src/js/modify.js", // 修改页
     sportsData: "./src/js/sportsData.js", // 运动数据页
+    badge: "./src/js/badge.js", // 徽章页
   },
   // 2. 出口
   output: {
@@ -160,6 +161,11 @@ module.exports = {
       template: "./src/sportsData.html",
       filename: "sportsData.html",
       chunks: ["sportsData", "commoncss"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/badge.html",
+      filename: "badge.html",
+      chunks: ["badge", "commoncss"],
     }),
 
     new MiniCssExtractPlugin({

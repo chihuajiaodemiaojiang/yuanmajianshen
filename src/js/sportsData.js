@@ -1,169 +1,212 @@
 require("../css/sportsData.less");
 let echarts = require("echarts");
-exerciseTime();
-function exerciseTime() {
-  let chartDom = document.getElementById("exerciseTimeTree");
-  let myChart = echarts.init(chartDom);
-  let option;
-  // prettier-ignore
-  let dataAxis = ['5-20', '5-21', '5-22', '5-23', '5-24', '5-25', '5-26'];
-  // prettier-ignore
-  let data = [220, 182, 191, 234, 290, 330, 310,];
-  let yMax = 500;
-  let dataShadow = [];
-  for (let i = 0; i < data.length; i++) {
-    dataShadow.push(yMax);
+const axios = require("axios");
+let userObj = JSON.parse(localStorage.getItem("userObj"));
+axios.defaults.headers.authorization = `Bearer ${userObj.token}`;
+let api = "http://47.96.154.185:3701";
+let headPortrait = document.querySelector(".headPortrait");
+axios.get(api + "/api/user/info").then((res) => {
+  console.log(res);
+  if (res.data.errno === 0) {
+    let data3 = res.data.data;
+    headPortrait.children[2].src = api + data3.imgUrl;
   }
-  option = {
-    title: {
-      text: "近七天运动时长",
-      textStyle: {
-        fontWeight: "normal",
-        fontSize: "14",
-      },
-      left: "5%",
-      top: "5%",
-    },
-    grid: {
-      bottom: "7%",
-      top: "20%",
-      right: "5%",
-      left: "12%",
-    },
-    xAxis: {
-      data: dataAxis,
-      axisLabel: {
-        inside: true,
-        color: "#fff",
-      },
-      axisTick: {
-        show: false,
-      },
-      axisLine: {
-        show: false,
-      },
-      z: 10,
-    },
-    yAxis: {
-      axisLine: {
-        show: false,
-      },
-      axisTick: {
-        show: false,
-      },
-      axisLabel: {
-        color: "#999",
-      },
-    },
-    dataZoom: [
-      {
-        type: "inside",
-      },
-    ],
-    series: [
-      {
-        type: "bar",
-        showBackground: true,
-        itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "#83bff6" },
-            { offset: 0.5, color: "#188df0" },
-            { offset: 1, color: "#188df0" },
-          ]),
-        },
-        emphasis: {
-          itemStyle: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: "#2378f7" },
-              { offset: 0.7, color: "#2378f7" },
-              { offset: 1, color: "#83bff6" },
-            ]),
-          },
-        },
-        data: data,
-      },
-    ],
-  };
-  // Enable data zoom when user click bar.
-  const zoomSize = 6;
-  myChart.on("click", function (params) {
-    console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
-    myChart.dispatchAction({
-      type: "dataZoom",
-      startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
-      endValue:
-        dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)],
+});
+axios.get(api + "/api/exercise").then((res) => {
+  let data1 = res.data.data;
+  let min = document.querySelector(".min");
+  let calorie2 = document.querySelector(".calorie");
+  let ka = document.querySelector(".ka");
+  let ka2 = 0;
+  min.children[1].innerHTML =
+    Math.floor(data1.sum7Duration / 6) + "<span>分钟</span>";
+  calorie2.children[1].innerHTML = data1.sum7Calorie + "<span>千卡</span>";
+  console.log(data1);
+  let dataAxis = [];
+  let data = [];
+  let runing = 0;
+  let running = 0;
+  let train = 0;
+  data1.days.forEach((item) => {
+    // 截取item.date后5位
+    ka2 += item.sumCalorie;
+    ka.textContent = ka2;
+    dataAxis.push(item.date.slice(5));
+    data.push(Math.floor(item.sumDuration / 60));
+    item.exerciseData.forEach((item1) => {
+      if (item1.type === 0) {
+        runing += item1.duration;
+      }
+      if (item1.type === 1) {
+        running += item1.duration;
+      }
+      if (item1.type === 2) {
+        train += item1.duration;
+      }
     });
   });
-
-  option && myChart.setOption(option);
-}
-SportsClassification();
-function SportsClassification() {
-  var chartDom = document.getElementById("pieChartOfSportsClassification");
-  var myChart = echarts.init(chartDom);
-  var option;
-  option = {
-    title: {
-      text: "运动分类",
-      textStyle: {
-        fontWeight: "normal",
-        fontSize: "14",
-      },
-      left: "5%",
-      top: "5%",
-    },
-    legend: {
-      orient: "vertical",
-      left: "5%",
-      top: "25%",
-      textStyle: {
-        color: [
-          "#fc8251",
-          "#5470c6",
-          "#91cd77",
-          "#ef6567",
-          "#f9c956",
-          "#75bedc",
-        ],
-      },
-    },
-    color: ["#fc8251", "#5470c6", "#91cd77", "#ef6567", "#f9c956", "#75bedc"],
-    toolbox: {
-      show: true,
-      feature: {
-        mark: { show: true },
-      },
-    },
-
-    series: [
-      {
-        name: "Nightingale Chart",
-        type: "pie",
-        radius: ["10%", "90%"],
-        center: ["60%", "50%"],
-        roseType: "area",
-        itemStyle: {
-          borderRadius: 8,
+  SportsClassification();
+  exerciseTime();
+  function exerciseTime() {
+    let chartDom = document.getElementById("exerciseTimeTree");
+    let myChart = echarts.init(chartDom);
+    let option;
+    let yMax = 500;
+    let dataShadow = [];
+    for (let i = 0; i < data.length; i++) {
+      dataShadow.push(yMax);
+    }
+    option = {
+      title: {
+        text: "近七天运动时长",
+        textStyle: {
+          fontWeight: "normal",
+          fontSize: "14",
         },
-        label: {
-          show: true,
-          position: "inside",
-          formatter: "{d}%", //只要百分比
+        left: "5%",
+        top: "5%",
+      },
+      grid: {
+        bottom: "7%",
+        top: "20%",
+        right: "5%",
+        left: "12%",
+      },
+      xAxis: {
+        data: dataAxis,
+        axisLabel: {
+          inside: true,
           color: "#fff",
+          fontSize: "10",
         },
-        labelLine: {
-          normal: {
-            show: false,
-          },
+        axisTick: {
+          show: false,
         },
-        data: [
-          { value: 25, name: "跑步" },
-          { value: 35, name: "骑行" },
-          { value: 40, name: "训练" },
-        ],
+        axisLine: {
+          show: false,
+        },
+        z: 10,
       },
-    ],
-  };
-  option && myChart.setOption(option);
-}
+      yAxis: {
+        axisLine: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+        },
+        axisLabel: {
+          color: "#999",
+        },
+      },
+      dataZoom: [
+        {
+          type: "inside",
+        },
+      ],
+      series: [
+        {
+          type: "bar",
+          showBackground: true,
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: "#83bff6" },
+              { offset: 0.5, color: "#188df0" },
+              { offset: 1, color: "#188df0" },
+            ]),
+          },
+          emphasis: {
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: "#2378f7" },
+                { offset: 0.7, color: "#2378f7" },
+                { offset: 1, color: "#83bff6" },
+              ]),
+            },
+          },
+          data: data,
+        },
+      ],
+    };
+    // Enable data zoom when user click bar.
+    const zoomSize = 6;
+    myChart.on("click", function (params) {
+      console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+      myChart.dispatchAction({
+        type: "dataZoom",
+        startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+        endValue:
+          dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)],
+      });
+    });
+
+    option && myChart.setOption(option);
+  }
+  function SportsClassification() {
+    var chartDom = document.getElementById("pieChartOfSportsClassification");
+    var myChart = echarts.init(chartDom);
+    var option;
+    option = {
+      title: {
+        text: "运动分类",
+        textStyle: {
+          fontWeight: "normal",
+          fontSize: "14",
+        },
+        left: "5%",
+        top: "5%",
+      },
+      legend: {
+        orient: "vertical",
+        left: "5%",
+        top: "25%",
+        textStyle: {
+          color: [
+            "#fc8251",
+            "#5470c6",
+            "#91cd77",
+            "#ef6567",
+            "#f9c956",
+            "#75bedc",
+          ],
+        },
+      },
+      color: ["#fc8251", "#5470c6", "#91cd77", "#ef6567", "#f9c956", "#75bedc"],
+      toolbox: {
+        show: true,
+        feature: {
+          mark: { show: true },
+        },
+      },
+
+      series: [
+        {
+          name: "Nightingale Chart",
+          type: "pie",
+          radius: ["10%", "90%"],
+          center: ["60%", "50%"],
+          roseType: "area",
+          itemStyle: {
+            borderRadius: 8,
+          },
+          label: {
+            show: true,
+            position: "inside",
+            formatter: "{d}%", //只要百分比
+            color: "#fff",
+          },
+          labelLine: {
+            normal: {
+              show: false,
+            },
+          },
+          data: [
+            { value: runing, name: "跑步" },
+            { value: running, name: "骑行" },
+            { value: train, name: "训练" },
+          ],
+        },
+      ],
+    };
+    option && myChart.setOption(option);
+  }
+});

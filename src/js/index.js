@@ -23,7 +23,7 @@ let medal = document.querySelector(".medal");
 let todayCard = document.querySelector(".today-card");
 let userObj = JSON.parse(localStorage.getItem("userObj"));
 axios.defaults.headers.authorization = `Bearer ${userObj.token}`;
-axios.get("http://139.9.177.51:3701/api/user/info").then(function (res) {
+axios.get("http://47.96.154.185:3701/api/user/info").then(function (res) {
   console.log(res);
   if (res.data.errno === 0) {
     let data = res.data.data;
@@ -38,7 +38,7 @@ todayCard.onclick = function () {
 };
 function card() {
   axios
-    .post("http://139.9.177.51:3701/api/user/clockIn")
+    .post("http://47.96.154.185:3701/api/user/clockIn")
     .then(function (res) {
       console.log(res);
       if (res.data.errno === 0) {

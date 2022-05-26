@@ -1,6 +1,6 @@
 require("../css/modify.less");
 let axios = require("axios");
-let api = "http://139.9.177.51:3701";
+let api = "http://47.96.154.185:3701";
 let userObj = JSON.parse(localStorage.getItem("userObj"));
 function fillZero(n) {
   return n < 10 ? "0" + n : n;

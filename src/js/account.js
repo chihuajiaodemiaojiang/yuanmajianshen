@@ -20,13 +20,11 @@ console.log(upheadimg);
 let axios = require("axios");
 let userObj = JSON.parse(localStorage.getItem("userObj"));
 axios.defaults.headers.common["Authorization"] = "Bearer " + userObj.token;
-let api = "http://139.9.177.51:3701";
+let api = "http://47.96.154.185:3701";
 axios.get(api + "/api/user/info").then((res) => {
   console.log(res);
   if (res.data.errno === 0) {
     let data = res.data.data;
-    console.log(data.badges);
-    console.log(headers);
     headers.src = api + data.imgUrl;
     userName.textContent = data.nickName;
     personalizedSignature.textContent = data.sign

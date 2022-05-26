@@ -1,7 +1,8 @@
 require("../css/VideoDetails.less");
 let axios = require("axios");
-let api = "http://139.9.177.51:3701";
+let api = "http://47.96.154.185:3701";
 let id = location.search.split("=")[1];
+console.log(id);
 let vimg = document.querySelector("#vimg");
 let videoName = document.querySelector(".video-title-name");
 let CALORIE = document.querySelector("#CALORIE");
@@ -47,7 +48,9 @@ axios
             "./playback.html?videoUrl=" +
             item.videoUrl +
             "&title=" +
-            item.title;
+            item.title +
+            "&id=" +
+            id;
         };
       }
     });

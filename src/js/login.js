@@ -18,7 +18,7 @@ btn.onclick = function () {
     return;
   }
   axios
-    .post("http://139.9.177.51:3701/api/user/login", {
+    .post("http://47.96.154.185:3701/api/user/login", {
       account: phone,
       password: password,
     })
