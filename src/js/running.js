@@ -12,18 +12,18 @@ let timer = null;
 let num = 4;
 let types = "";
 let btn = document.querySelectorAll(".runningbox div");
-let main = document.querySelector(".main");
 for (let i = 0; i < btn.length; i++) {
   btn[i].onclick = function () {
     for (let j = 0; j < btn.length; j++) {
       btn[j].className = "";
     }
     this.className = "on";
+    if (btn[i].className === "on") {
+      types = btn[i].dataset.type;
+    }
   };
-  if (btn[i].className === "on") {
-    types = btn[i].dataset.type;
-  }
 }
+
 go.onclick = function () {
   clearInterval(timer);
   timer = setInterval(function () {
