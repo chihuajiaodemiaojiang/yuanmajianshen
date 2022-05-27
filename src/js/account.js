@@ -9,6 +9,11 @@ let calorie1 = document.querySelector(".calorie1");
 let badgeItem = document.querySelectorAll(".badge-item");
 let upheadimg = document.querySelector("#upheadimg");
 let userinfo = document.querySelector(".userinfo");
+let exit = document.querySelector(".exitTheLogin");
+exit.onclick = function () {
+  localStorage.removeItem("userObj");
+  location.href = "./login.html";
+};
 userinfo.addEventListener("click", function (e) {
   console.log(e.target);
   if (e.target.id !== "upheadimg") {

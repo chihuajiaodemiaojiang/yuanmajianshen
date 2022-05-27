@@ -2,6 +2,14 @@ require("../css/index.less");
 require("../../node_modules/swiper/swiper-bundle.min.js");
 require("../../node_modules/swiper/swiper-bundle.min.css");
 let utils = require("./utils.js");
+let jumspors = document.querySelector("#jumspors");
+let jumbadge = document.querySelector("#jumbadge");
+jumbadge.onclick = function () {
+  location.href = "./badge.html?type=index";
+};
+jumspors.onclick = function () {
+  location.href = "./sportsData.html?type=index";
+};
 utils.getfooter("index");
 let axios = require("axios");
 var mySwiper = new Swiper(".swiper", {

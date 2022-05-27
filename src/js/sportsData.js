@@ -5,19 +5,30 @@ let userObj = JSON.parse(localStorage.getItem("userObj"));
 axios.defaults.headers.authorization = `Bearer ${userObj.token}`;
 let api = "http://47.96.154.185:3701";
 let headPortrait = document.querySelector(".headPortrait");
+let ka = document.querySelector(".ka");
+let day3 = document.querySelector(".day3");
+let day4 = document.querySelector(".day4");
+let back5 = document.querySelector(".back5");
+let type = location.search.split("=")[1];
+console.log(type);
+if (type === "index") {
+  back5.href = "./index.html";
+}
 axios.get(api + "/api/user/info").then((res) => {
   console.log(res);
   if (res.data.errno === 0) {
     let data3 = res.data.data;
     headPortrait.children[2].src = api + data3.imgUrl;
+    ka.textContent = data3.calorie;
+    day3.textContent = Math.floor(data3.duration / 60 / 24);
+    day4.textContent = data3.clockCount;
   }
 });
 axios.get(api + "/api/exercise").then((res) => {
   let data1 = res.data.data;
   let min = document.querySelector(".min");
   let calorie2 = document.querySelector(".calorie");
-  let ka = document.querySelector(".ka");
-  let ka2 = 0;
+
   min.children[1].innerHTML =
     Math.floor(data1.sum7Duration / 6) + "<span>分钟</span>";
   calorie2.children[1].innerHTML = data1.sum7Calorie + "<span>千卡</span>";
@@ -29,8 +40,6 @@ axios.get(api + "/api/exercise").then((res) => {
   let train = 0;
   data1.days.forEach((item) => {
     // 截取item.date后5位
-    ka2 += item.sumCalorie;
-    ka.textContent = ka2;
     dataAxis.push(item.date.slice(5));
     data.push(Math.floor(item.sumDuration / 60));
     item.exerciseData.forEach((item1) => {

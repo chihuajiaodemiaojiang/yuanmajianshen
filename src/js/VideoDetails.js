@@ -50,7 +50,9 @@ axios
             "&title=" +
             item.title +
             "&id=" +
-            id;
+            id +
+            "&time=" +
+            0;
         };
       }
     });

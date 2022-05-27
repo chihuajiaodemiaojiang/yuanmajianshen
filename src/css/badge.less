@@ -1,3 +1,53 @@
+.mask1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background: white;
+  justify-content: center;
+  display: none;
+  .head {
+    background: #4193fd;
+    width: 100%;
+    color: white;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 50px;
+    padding: 0 15px;
+    z-index: 9999;
+  }
+  p {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .name1 {
+    top: 53%;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .desc1 {
+    top: 58%;
+    color: #4193fd;
+  }
+  .data5 {
+    bottom: 20%;
+    color: #4193fd;
+  }
+
+  img {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 30%;
+    align-self: center;
+  }
+}
 header {
   flex: 1;
   display: flex;
@@ -52,6 +102,7 @@ header {
 }
 main {
   flex: 3;
+  position: relative;
   ul {
     width: 100%;
     display: flex;

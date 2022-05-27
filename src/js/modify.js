@@ -1,4 +1,5 @@
 require("../css/modify.less");
+let utils = require("./utils.js");
 let axios = require("axios");
 let api = "http://47.96.154.185:3701";
 let userObj = JSON.parse(localStorage.getItem("userObj"));
@@ -184,7 +185,9 @@ window.addEventListener("load", function () {
         let newObj = Object.assign({}, res.data.data, obj);
         console.log(newObj);
         localStorage.setItem("userObj", JSON.stringify(newObj));
-        location.href = "./account.html";
+        utils.getAlertBox("zhucechenggong", "修改成功", function () {
+          location.href = "./account.html";
+        });
       }
     });
   });

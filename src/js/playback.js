@@ -9,8 +9,11 @@ let arr = str.split("&");
 let newArr = [];
 let up = document.querySelector(".up");
 let top = document.querySelector(".top");
+let section = document.querySelector(".section");
 let videotitle = document.querySelector(".video-title");
-
+let mask = document.querySelector(".mask");
+let timer = null;
+let timer1 = null;
 arr.forEach(function (item) {
   newArr.push(decodeURI(item.split("=")[1]));
 });
@@ -19,18 +22,61 @@ let newtitle = "";
 let newurl1 = "";
 let newtitle1 = "";
 let videoUrl = newArr[0];
-let title = newArr[1];
-let id = newArr[2];
-console.log(id);
-let back = document.querySelector(".back");
-
-// 把id值加1
+function extracted(data) {
+  console.log(id);
+  if (title === data.fragments[data.fragments.length - 1].title) {
+    return;
+  }
+  location.href =
+    "./playback.html?videoUrl=" +
+    newurl +
+    "&title=" +
+    newtitle +
+    "&id=" +
+    (id += 1) +
+    "&time=" +
+    (time3 + time2);
+}
 console.log(videoUrl);
-console.log(title);
+let title = newArr[1];
+let id = parseInt(newArr[2]);
+let time3 = parseInt(newArr[3]);
+let time2 = 0;
+console.log(time3);
+console.log(id);
+let back3 = document.querySelector(".back3");
+let back = document.querySelector(".back");
+// 把id值加1
+back.onclick = function () {
+  saveData();
+};
+back3.addEventListener("click", function () {
+  saveData();
+});
+function saveData() {
+  console.log(666);
+  // axios
+  //   .post(url + "/api/exercise/save", {
+  //     params: {
+  //       type: 2,
+  //       duration: Math.floor(time3 + time2),
+  //       calorie: Math.floor(time3 + time2) * 1.3,
+  //     },
+  //   })
+  //   .then((res) => {
+  //     console.log(res);
+  location.href = "./VideoDetails.html?id=" + id;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+}
 let VIDEO = document.querySelector("#VIDEO");
 let Title = document.querySelector("#Title");
 Title.innerHTML = title;
-VIDEO.src = url + videoUrl;
+if (videoUrl !== "/course/part1.mp4") {
+  VIDEO.src = url + videoUrl;
+}
 
 axios
   .get(url + "/api/train/courseDetail", {
@@ -41,11 +87,10 @@ axios
   .then(function (res) {
     console.log(res.data);
     let data = res.data.data;
-    back.onclick = function () {
-      location.href = "./VideoDetails.html?id=" + parseInt(videoUrl.slice(-5));
-    };
-    videotitle.children[0].textContent =
-      parseInt(videoUrl.slice(-5)) + "/" + data.fragments.length;
+
+    section.children[0].src = url + data.imgurl;
+    section.children[1].textContent = id + ":" + data.name;
+    videotitle.children[0].textContent = id + "/" + data.fragments.length;
     data.fragments.forEach(function (item, index) {
       // console.log(item);
       if (videoUrl === item.videoUrl) {
@@ -65,17 +110,9 @@ axios
       }
     });
     up.onclick = function () {
-      if (title === data.fragments[data.fragments.length - 1].title) {
-        return;
-      }
-      location.href =
-        "./playback.html?videoUrl=" +
-        newurl +
-        "&title=" +
-        newtitle +
-        "&id=" +
-        id;
+      extracted(data);
     };
+
     top.onclick = function () {
       if (title === data.fragments[0].title) {
         return;
@@ -86,7 +123,15 @@ axios
         "&title=" +
         newtitle1 +
         "&id=" +
-        id;
+        (id -= 1) +
+        "&time=" +
+        (time3 + time2);
+    };
+    VIDEO.onended = function () {
+      mask.style.display = "none";
+      extracted(data);
+      clearInterval(timer);
+      clearInterval(timer1);
     };
   });
 
@@ -117,22 +162,24 @@ window.onload = function () {
   let progressBar = document.querySelector(".progressBar");
   let progressBarHead = document.querySelector(".progressBarHead");
   let now = document.querySelector(".now");
-  let timer = null;
-  let timer1 = null;
   let theWidth = video.offsetWidth;
+
   // 获取地址栏videoUrl和title
   function bar() {
+    time2 = video.currentTime;
     progressBarHead.style.left =
       (video.currentTime / video.duration) * theWidth + "px";
     now.style.width = (video.currentTime / video.duration) * theWidth + "px";
   }
+  video.play();
   //绑定播放事件
   video.onplay = function () {
     iconTubiaozhizuomoban1.style.display = "block";
     iconTubiaozhizuomoban.style.display = "block";
     play.classList.add("icon-zanting");
     play.classList.remove("icon-bofang");
-    conceal(3);
+    mask.style.display = "none";
+    conceal(2);
     timer1 = setInterval(function () {
       bar();
     }, 15);
@@ -141,17 +188,8 @@ window.onload = function () {
   video.onpause = function () {
     play.classList.add("icon-bofang");
     play.classList.remove("icon-zanting");
-    conceal(3);
-    clearInterval(timer1);
+    mask.style.display = "block";
   };
-  //绑定结束播放事件
-  video.onended = function () {
-    clearInterval(timer1);
-    play.classList.add("icon-bofang");
-    play.classList.remove("icon-zanting");
-    play.style.display = "block";
-  };
-
   //绑定点击事件,点击视频时出现暂停或者播放按钮
   videoBox.addEventListener("click", function (e) {
     console.log(e.target);
@@ -180,6 +218,10 @@ window.onload = function () {
     clearInterval(timer);
     timer = setInterval(function () {
       console.log(333);
+      if (mask.style.display === "block") {
+        clearInterval(timer);
+        return;
+      }
       videospan.forEach(function (v) {
         v.style.display = "none";
       });
