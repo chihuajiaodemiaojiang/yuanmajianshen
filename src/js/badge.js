@@ -26,6 +26,9 @@ axios.get(url + "/api/exercise/badge").then((res) => {
     li[item.id - 1].style.display = "flex";
     li[item.id - 1].children[1].textContent = item.name;
     li[item.id - 1].onclick = function () {
+      if (item.detail.name.search("-") !== -1) {
+        item.detail.name = item.detail.name.slice(0, -2);
+      }
       mask.style.display = "block";
       mask.children[1].src = this.children[0].src;
       mask.children[2].textContent = item.detail.name;
